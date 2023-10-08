@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BikeListTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="refresh">새로 고침</string>
+    <string name="rackTotCnt">거치대개수</string>
+    <string name="stationName">대여소이름</string>
+    <string name="parkingBikeTotCnt">자전거주차총건수</string>
+    <string name="shared">거치율</string>
+    <string name="stationLatitude">위도</string>
+    <string name="stationLongitude">경도</string>
+    <string name="stationId">대여소ID</string>
+</resources>

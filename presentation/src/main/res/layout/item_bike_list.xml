@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="bike"
+            type="com.kguard.domain.model.DomainBikeList" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_stationId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/stationId"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="@+id/tv_stationLongitude"
+            app:layout_constraintTop_toBottomOf="@+id/tv_stationLongitude" />
+
+        <TextView
+            android:id="@+id/tv_shared_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{bike.shared}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_shared"
+            app:layout_constraintStart_toEndOf="@+id/tv_shared"
+            app:layout_constraintTop_toTopOf="@+id/tv_shared" />
+
+        <TextView
+            android:id="@+id/tv_stationLatitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/stationLatitude"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toEndOf="@+id/tv_rackToCnt_value"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_stationLongitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/stationLongitude"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="@+id/tv_stationLatitude"
+            app:layout_constraintTop_toBottomOf="@+id/tv_stationLatitude" />
+
+        <TextView
+            android:id="@+id/tv_stationLongitude_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{bike.stationLongitude}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_stationLongitude"
+            app:layout_constraintStart_toEndOf="@+id/tv_stationLongitude"
+            app:layout_constraintTop_toTopOf="@+id/tv_stationLongitude" />
+
+        <TextView
+            android:id="@+id/tv_stationId_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{bike.stationId}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_stationId"
+            app:layout_constraintStart_toEndOf="@+id/tv_stationId"
+            app:layout_constraintTop_toTopOf="@+id/tv_stationId" />
+
+        <TextView
+            android:id="@+id/tv_stationLatitude_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{bike.stationLatitude}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_stationLatitude"
+            app:layout_constraintStart_toEndOf="@+id/tv_stationLatitude"
+            app:layout_constraintTop_toTopOf="@+id/tv_stationLatitude" />
+
+        <TextView
+            android:id="@+id/tv_rackToCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/rackTotCnt"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_stationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/stationName"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="@+id/tv_rackToCnt"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rackToCnt" />
+
+        <TextView
+            android:id="@+id/tv_parkingBikeToCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/parkingBikeTotCnt"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="@+id/tv_stationName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_stationName" />
+
+        <TextView
+            android:id="@+id/tv_shared"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/shared"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="@+id/tv_parkingBikeToCnt"
+            app:layout_constraintTop_toBottomOf="@+id/tv_parkingBikeToCnt" />
+
+        <TextView
+            android:id="@+id/tv_rackToCnt_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{bike.rackToCnt}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_rackToCnt"
+            app:layout_constraintStart_toEndOf="@+id/tv_rackToCnt"
+            app:layout_constraintTop_toTopOf="@+id/tv_rackToCnt" />
+
+        <TextView
+            android:id="@+id/tv_stationName_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{bike.stationName}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_stationName"
+            app:layout_constraintStart_toEndOf="@+id/tv_stationName"
+            app:layout_constraintTop_toTopOf="@+id/tv_stationName" />
+
+        <TextView
+            android:id="@+id/tv_parkingBikeToCnt_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{bike.parkingBikeToCnt}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_parkingBikeToCnt"
+            app:layout_constraintStart_toEndOf="@+id/tv_parkingBikeToCnt"
+            app:layout_constraintTop_toTopOf="@+id/tv_parkingBikeToCnt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
