@@ -12,7 +12,7 @@ class BikeListRepositoryImpl @Inject constructor(
     private val api : BikeListDataSource
 ):BikeListRepository{
     override suspend fun getBikeList(startIndex: Int, endIndex: Int): List<DomainBikeList> {
-        Log.e("repository", "getBikeList: ${api.getBikeList(startIndex, endIndex)}", )
-        return api.getBikeList(startIndex, endIndex).row.map {BikeListMapper.toDomainBikeList(it)}
+        Log.e("repository", "repository: ${api.getBikeList(startIndex, endIndex).rentBikeStatus.row}", )
+        return api.getBikeList(startIndex, endIndex).rentBikeStatus.row.map {BikeListMapper.toDomainBikeList(it)}
     }
 }

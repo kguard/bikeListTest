@@ -1,7 +1,8 @@
 package com.kguard.data.remote.dataSource
 
 import com.kguard.data.BuildConfig
-import com.kguard.data.remote.dto.rentBikeStatus
+import com.kguard.data.remote.dto.BikeListTest
+import com.kguard.data.remote.dto.RentBikeStatus
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -12,5 +13,5 @@ interface BikeListDataSource {
         startIndex : Int,
         @Path("endIndex")
         endIndex : Int
-    ):rentBikeStatus
+    ):BikeListTest
 }

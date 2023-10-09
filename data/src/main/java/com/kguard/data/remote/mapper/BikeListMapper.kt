@@ -6,9 +6,9 @@ import com.kguard.domain.model.DomainBikeList
 object BikeListMapper {
     fun toDomainBikeList(bikeList: BikeList): DomainBikeList =
         DomainBikeList(
-            rackToCnt = bikeList.rackToCnt,
+            rackToCnt = bikeList.rackTotCnt.toString(),
             stationName = bikeList.stationName,
-            parkingBikeToCnt = bikeList.parkingBikeToCnt,
+            parkingBikeToCnt = bikeList.parkingBikeTotCnt.toString(),
             shared = bikeList.shared,
             stationLatitude = bikeList.stationLatitude,
             stationLongitude = bikeList.stationLongitude,
