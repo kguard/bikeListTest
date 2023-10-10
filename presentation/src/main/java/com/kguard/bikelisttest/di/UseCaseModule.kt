@@ -1,7 +1,8 @@
 package com.kguard.bikelisttest.di
 
 import com.kguard.domain.repository.BikeListRepository
-import com.kguard.domain.usecase.BikeListUseCase
+import com.kguard.domain.usecase.BikeListFlowUseCase
+import com.kguard.domain.usecase.BikeListLiveDataUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +14,13 @@ import javax.inject.Singleton
 object UseCaseModule {
     @Provides
     @Singleton
-    fun provideBikeListUseCase(repository: BikeListRepository): BikeListUseCase{
-        return BikeListUseCase(repository)
+    fun provideBikeListLiveDataUseCase(repository: BikeListRepository): BikeListLiveDataUseCase{
+        return BikeListLiveDataUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBikeListFlowUseCase(repository: BikeListRepository): BikeListFlowUseCase {
+        return BikeListFlowUseCase(repository)
     }
 }
