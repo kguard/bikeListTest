@@ -1,4 +1,4 @@
-package com.kguard.data.remote.dto
+package com.kguard.data.model.dto
 
 import com.google.gson.annotations.SerializedName
 

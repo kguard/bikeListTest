@@ -1,4 +1,4 @@
-package com.kguard.data.remote.dto
+package com.kguard.data.model.dto
 
 data class BikeListTest(
     val rentBikeStatus: RentBikeStatus

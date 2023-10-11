@@ -1,10 +1,12 @@
 package com.kguard.bikelisttest.ui.fragment
 
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.kguard.bikelisttest.R
 import com.kguard.bikelisttest.adapter.BikeListAdapter
 import com.kguard.bikelisttest.base.BaseFragment
 import com.kguard.bikelisttest.databinding.FragmentMainBinding
+import com.kguard.bikelisttest.util.FetchState
 import com.kguard.bikelisttest.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +16,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
     private val bikeListAdapter = BikeListAdapter()
     private val bikeListFlowAdapter = BikeListAdapter()
     override fun initData() {
-        viewModel.getBikeList(1,5)
+       // viewModel.getBikeList(1,5)
         viewModel.getBikeListFlow(5,10)
     }
 
@@ -32,6 +34,17 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         }
         viewModel.bikeListFlow.observe(viewLifecycleOwner){
             bikeListFlowAdapter.setData(it)
+        }
+        viewModel.fetchState.observe(this)
+        {
+            when(it.second){
+                FetchState.FAIL-> {
+                    Toast.makeText(this.context, "연결실패", Toast.LENGTH_SHORT).show()
+                }
+                else ->{
+                    Toast.makeText(this.context, "흠..", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 

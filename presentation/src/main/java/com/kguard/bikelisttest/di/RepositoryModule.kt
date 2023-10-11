@@ -14,9 +14,7 @@ import javax.inject.Singleton
 object RepositoryModule {
     @Provides
     @Singleton
-    fun provideBikeListRepository(
-        api: BikeListDataSource
-    ): BikeListRepository {
+    fun provideBikeListRepository(api: BikeListDataSource): BikeListRepository {
         return BikeListRepositoryImpl(api)
     }
 }

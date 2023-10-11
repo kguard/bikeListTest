@@ -1,6 +1,6 @@
-package com.kguard.data.remote.mapper
+package com.kguard.data.mapper
 
-import com.kguard.data.remote.dto.BikeList
+import com.kguard.data.model.dto.BikeList
 import com.kguard.domain.model.DomainBikeList
 
 object BikeListMapper {
