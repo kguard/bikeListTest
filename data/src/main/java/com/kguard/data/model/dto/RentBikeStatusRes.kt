@@ -3,11 +3,11 @@ package com.kguard.data.model.dto
 import com.google.gson.annotations.SerializedName
 
 
-data class RentBikeStatus(
+data class RentBikeStatusRes(
     @SerializedName("list_total_count")
     val listTotalCount: Int,
     @SerializedName("RESULT")
-    val result: ResultResponse,
+    val result: ResultRes,
     @SerializedName("row")
-    val row: List<BikeList>
+    val row: List<RowRes>
 )

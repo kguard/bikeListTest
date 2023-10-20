@@ -1,6 +1,11 @@
 package com.kguard.bikelisttest.di
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.kguard.data.BuildConfig
+import com.kguard.data.util.ResponseCallAdapter
+import com.kguard.data.util.ResponseCallAdapterFactory
+import com.kguard.data.util.ResponseInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,13 +20,15 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    private var gson: Gson = GsonBuilder().setLenient().create()
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("http://openapi.seoul.go.kr:8088/")
             .client(provideOkHttpClient())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(ResponseCallAdapterFactory())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
     @Provides
@@ -29,15 +36,21 @@ object NetworkModule {
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(provideOkHttpLogging())
-            .addInterceptor{
-                val request = it.request()
-                    .newBuilder()
-                    .build()
-                // Response
-                val response = it.proceed(request)
-                response
-            }
+            .addInterceptor(provideResponseInterceptor())
+//            .addInterceptor{
+//                val request = it.request()
+//                    .newBuilder()
+//                    .build()
+//                // Response
+//                val response = it.proceed(request)
+//                response
+//            }
             .build()
+    }
+    @Provides
+    @Singleton
+    fun provideResponseInterceptor() : ResponseInterceptor{
+        return ResponseInterceptor()
     }
 
     @Provides

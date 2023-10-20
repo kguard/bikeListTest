@@ -22,11 +22,11 @@ class BikeListAdapter() : RecyclerView.Adapter<BikeListAdapter.BikeListViewHolde
     }
 
     override fun getItemCount(): Int {
-        return bikeList.size
+        return bikeList?.size ?: 10
     }
 
     override fun onBindViewHolder(holder: BikeListViewHolder, position: Int) {
-        holder.setItem(bikeList[position])
+        bikeList?.get(position)?.let { holder.setItem(it) }
     }
     @SuppressLint("NotifyDataSetChanged")
     fun setData(newBikeList: List<DomainBikeList>){

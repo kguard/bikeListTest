@@ -1,8 +1,12 @@
 package com.kguard.domain.state
 
-sealed class ResultState<R>{
-    data class Success<R>(val data: R): ResultState<R>()
-    data class Error<R>(val failure: Failure = Failure.UnHandleError(), val data: R? = null): ResultState<R>()
-    class Loading<R>(): ResultState<R>()
+sealed class ResultState<out R>{
+    data class Success<out R>(val data: R): ResultState<R>()
+
+    sealed class Fail : ResultState<Nothing>(){
+        data class Error(val code: String, val message: String): Fail()
+        data class Exception(val e: Throwable, val message: String):Fail()
+    }
+    data object Loading: ResultState<Nothing>()
 }
 

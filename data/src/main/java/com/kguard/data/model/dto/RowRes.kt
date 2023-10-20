@@ -1,6 +1,6 @@
 package com.kguard.data.model.dto
 
-data class BikeList(
+data class RowRes(
     val rackTotCnt: Int,
     val stationName: String,
     val parkingBikeTotCnt: Int,
