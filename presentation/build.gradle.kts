@@ -24,6 +24,10 @@ android {
         viewBinding = true
         dataBinding = true
         buildConfig = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
 
     buildTypes {
@@ -78,5 +82,25 @@ dependencies {
     implementation(Dependencies.Okhttp.Okhttp)
     implementation(Dependencies.Okhttp.LoggingInterceptor)
     implementation(Dependencies.Okhttp.UrlConnection)
+    //Jetpack Compose
+    implementation(platform(Dependencies.Compose.ComposeBom))
+    implementation(Dependencies.Compose.ComposeUI)
+    implementation(Dependencies.Compose.ComposeMaterial)
+    implementation(Dependencies.Compose.ComposeGraphics)
+
+    implementation(Dependencies.Compose.ComposeUIToolingPrev)
+    debugImplementation(Dependencies.Compose.ComposeUiTooling)
+
+    androidTestImplementation(Dependencies.Compose.ComposeTest)
+    debugImplementation(Dependencies.Compose.ComposeManifest)
+
+    implementation(Dependencies.Compose.ComposeIconCore)
+    implementation(Dependencies.Compose.ComposeIconExtended)
+    implementation(Dependencies.Compose.ComposeWindow)
+
+    implementation(Dependencies.Compose.ComposeActivity)
+    implementation(Dependencies.Compose.CompseViewModel)
+    implementation(Dependencies.Compose.ComposeLiveData)
+
 
 }

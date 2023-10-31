@@ -27,9 +27,34 @@ object Dependencies {
 
     }
     object Compose{
-        private const val COMPOSE_VERSION= "1.5.1"
-        const val ComposeMaterial = "androidx.compose.material:material:$COMPOSE_VERSION"
-        const val ComposeUi = "androidx.compose.ui:ui-tooling:$COMPOSE_VERSION"
+        //private const val COMPOSE_VERSION= "1.5.2"
+        const val ComposeBom = "androidx.compose:compose-bom:2023.10.01"
+        const val ComposeMaterial = "androidx.compose.material3:material3"
+        const val ComposeUI = "androidx.compose.ui:ui"
+        const val ComposeGraphics ="androidx.compose.ui:ui-graphics"
+        // Android Studio Preview support
+        const val ComposeUiTooling = "androidx.compose.ui:ui-tooling"
+        const val ComposeUIToolingPrev = "androidx.compose.ui:ui-tooling-preview"
+        // UI Tests
+        const val ComposeTest = "androidx.compose.ui:ui-test-junit4"
+        const val ComposeManifest = "androidx.compose.ui:ui-test-manifest"
+
+
+        const val ComposeIconCore= "androidx.compose.material:material-icons-core"
+        // Optional - Add full set of material icons
+        const val ComposeIconExtended= "androidx.compose.material:material-icons-extended"
+        // Optional - Add window size utils
+        const val ComposeWindow= "androidx.compose.material3:material3-window-size-class"
+
+        // Optional - Integration with activities
+        const val ComposeActivity= "androidx.activity:activity-compose:1.8.0"
+        // Optional - Integration with ViewModels
+        const val CompseViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2"
+        // Optional - Integration with LiveData
+        const val ComposeLiveData = "androidx.compose.runtime:runtime-livedata"
+
+
+
     }
     object Google {
         const val AndroidMaterial = "com.google.android.material:material:1.9.0"
