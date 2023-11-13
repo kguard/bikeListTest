@@ -102,5 +102,7 @@ dependencies {
     implementation(Dependencies.Compose.CompseViewModel)
     implementation(Dependencies.Compose.ComposeLiveData)
 
+    implementation(Dependencies.Compose.ComposeHilt)
+
 
 }

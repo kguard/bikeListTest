@@ -16,6 +16,7 @@ import javax.inject.Inject
 class BikeListDataSourceImpl @Inject constructor(private val api: BikeListAPI) :
     BikeListDataSource {
     override suspend fun getBikeList(startIndex: Int, endIndex: Int): BikeListTestRes {
+        Log.e("datacource", "getBikeList: ${api.getBikeList(startIndex, endIndex)}", )
         return api.getBikeList(startIndex, endIndex)
     }
 

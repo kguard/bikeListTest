@@ -26,8 +26,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
     override fun initData() {
 //        viewModel.getBikeList(1,5) //1
 //        viewModel.getBikeListFlow(5,10) //2
-//        viewModel.getBikeListStateFlow(1,5) //3
-        viewModel.getBikeListWithResponseState(1,5) //4
+        viewModel.getBikeListStateFlow(1,5) //3
+//        viewModel.getBikeListWithResponseState(1,5) //4
     }
 
     override fun initUI() {
@@ -47,46 +47,46 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 //            binding.tvRv2.text = "flow"
 //            bikeListAdapter2.setData(it)
 //        }
-//        lifecycleScope.launch { //3
-//            repeatOnLifecycle(Lifecycle.State.STARTED){
-//                viewModel.bikeListStateFlow.collect{
-//                    binding.tvRv1.text = "stateFlow"
-//                    bikeListAdapter1.setData(it)
-//                }
-//            }
-//        }
         lifecycleScope.launch { //3
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.bikeListStateFlowWithResponse.collect{
-                    binding.tvRv1.text = "stateFlowWithResponse"
-                    when(it)
-                    {
-                        is ResultState.Success ->{
-                            binding.progressBar.visibility= View.GONE
-                            bikeListAdapter1.setData(it.data)
-                        }
-                        is ResultState.Fail.Error -> {
-                            binding.progressBar.visibility= View.GONE
-                            binding.tvError1.apply {
-                                this.visibility = View.VISIBLE
-                                text = (it.code+"\n"+it.message)
-                            }
-                        }
-                        is ResultState.Fail.Exception -> {
-                            binding.progressBar.visibility= View.GONE
-                            binding.tvError1.apply {
-                                this.visibility = View.VISIBLE
-                                text = (it.e.toString()+"\n"+it.message)
-                            }
-                        }
-                        is ResultState.Loading ->{
-                            binding.progressBar.visibility= View.VISIBLE
-                        }
-
-                    }
+                viewModel.bikeListStateFlow.collect{
+                    binding.tvRv1.text = "stateFlow"
+                    bikeListAdapter1.setData(it)
                 }
             }
         }
+//        lifecycleScope.launch { //3
+//            repeatOnLifecycle(Lifecycle.State.STARTED){
+//                viewModel.bikeListStateFlowWithResponse.collect{
+//                    binding.tvRv1.text = "stateFlowWithResponse"
+//                    when(it)
+//                    {
+//                        is ResultState.Success ->{
+//                            binding.progressBar.visibility= View.GONE
+//                            bikeListAdapter1.setData(it.data)
+//                        }
+//                        is ResultState.Fail.Error -> {
+//                            binding.progressBar.visibility= View.GONE
+//                            binding.tvError1.apply {
+//                                this.visibility = View.VISIBLE
+//                                text = (it.code+"\n"+it.message)
+//                            }
+//                        }
+//                        is ResultState.Fail.Exception -> {
+//                            binding.progressBar.visibility= View.GONE
+//                            binding.tvError1.apply {
+//                                this.visibility = View.VISIBLE
+//                                text = (it.e.toString()+"\n"+it.message)
+//                            }
+//                        }
+//                        is ResultState.Loading ->{
+//                            binding.progressBar.visibility= View.VISIBLE
+//                        }
+//
+//                    }
+//                }
+//            }
+//        }
 
 
         viewModel.fetchState.observe(this)

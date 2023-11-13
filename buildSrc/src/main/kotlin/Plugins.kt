@@ -1,7 +1,7 @@
 
 object Plugins {
     object Version {
-        const val ANDROID = "8.1.1"
+        const val ANDROID = "8.1.2"
         const val JETBRAINS_KOTLIN_ANDROID = "1.9.0"
         const val DAGGER_HILT_ANDROID = "2.46.1"
         const val NAVIGATION_SAFE_ARGS = "2.6.0"

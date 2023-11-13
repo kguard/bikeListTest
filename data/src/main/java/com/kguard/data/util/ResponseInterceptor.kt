@@ -22,14 +22,23 @@ class ResponseInterceptor : Interceptor {
 //        return response.newBuilder().body(dataPayload.toString().toResponseBody()).build()
 
         return if (responseJson.has(KEY_RESULT)) {
+            Log.e("TAG", "intercept: 1", )
             val errorRes = JSONObject(responseJson[KEY_RESULT].toString())
             val code = errorRes[KEY_CODE].toString().replace("ERROR-","").toInt()
             val message = errorRes[KEY_MESSAGE].toString()
             response.newBuilder().code(code).message(message).body(EMPTY_JSON.toResponseBody()).build()
-        } else if (responseJson.has(KEY_rentBikeStatus)){
+        }
+        else if (responseJson.has(KEY_rentBikeStatus)){
+            Log.e("TAG", "intercept: 2", )
             val rightRes = responseJson[KEY_rentBikeStatus].toString().toResponseBody()
-            response.newBuilder().body(rightRes).build()
-        } else {
+            val a = response.newBuilder().body(rightRes).build()
+            Log.e("TAG", "intercept:$a ", )
+            a
+
+        }
+        else {
+            Log.e("TAG", "intercept: 3", )
+            Log.e("TAG", "intercept: ${responseJson}", )
             response
         }
 

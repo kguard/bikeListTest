@@ -53,6 +53,12 @@ object Dependencies {
         // Optional - Integration with LiveData
         const val ComposeLiveData = "androidx.compose.runtime:runtime-livedata"
 
+        const val NavUI = "androidx.navigation:navigation-ui-ktx"
+        const val NavFragment = "androidx.navigation:navigation-fragment-ktx"
+        const val NavCompose = "androidx.navigation:navigation-compose"
+
+        const val ComposeHilt = "androidx.hilt:hilt-navigation-compose:1.1.0"
+
 
 
     }

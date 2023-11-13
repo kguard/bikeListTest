@@ -81,20 +81,21 @@ class MainViewModel @Inject constructor(
     fun getBikeListWithResponseState(startIndex: Int, endIndex: Int) { //4
         modelScope.launch {
             _bikeListStateFlowWithResponse.value = bikeListWithResponseStateUseCase(startIndex, endIndex)
-            when(val usecase  = bikeListWithResponseStateUseCase(startIndex, endIndex))
-            {
+            when (val usecase = bikeListWithResponseStateUseCase(startIndex, endIndex)) {
                 is ResultState.Success -> _bikeListStateFlowWithResponse.value = usecase
-                is ResultState.Fail.Exception -> {when(val exception = usecase.e){
-                    is TimeoutException -> ResultState.Fail.Exception(exception,"시간초과")
+                is ResultState.Fail.Exception -> {
+                    when (val exception = usecase.e) {
+                        is TimeoutException -> ResultState.Fail.Exception(exception, "시간초과")
+                        else -> ResultState.Fail.Exception(exception,"시간초과외 다른 오류")
+                    }
                 }
-                }is ResultState.Loading -> {}
+                is ResultState.Fail.Error -> ResultState.Fail.Error(usecase.code,usecase.message)
+                is ResultState.Loading -> {}
 
             }
 
         }
     }
-
-
 
 
 }
