@@ -4,6 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.Kotlin.CoroutinesCore)
-    implementation(Dependencies.Kotlin.CoroutinesAndroid)
+    implementation(Dependencies.Coroutine.CoroutinesCore)
+    implementation(Dependencies.Coroutine.CoroutinesAndroid)
 }

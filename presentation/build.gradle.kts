@@ -69,8 +69,8 @@ dependencies {
     implementation(Dependencies.AndroidX.LifecycleRuntimeKtx)
     implementation(Dependencies.AndroidX.LifecycleLivedataKtx)
     //Coroutines
-    implementation(Dependencies.Kotlin.CoroutinesCore)
-    implementation(Dependencies.Kotlin.CoroutinesAndroid)
+    implementation(Dependencies.Coroutine.CoroutinesCore)
+    implementation(Dependencies.Coroutine.CoroutinesAndroid)
     //DaggerHilt
     implementation(Dependencies.DaggerHilt.HiltAndroid)
     kapt(Dependencies.DaggerHilt.HiltCompiler)

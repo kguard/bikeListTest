@@ -15,6 +15,7 @@ import javax.inject.Inject
 
 class BikeListDataSourceImpl @Inject constructor(private val api: BikeListAPI) :
     BikeListDataSource {
+    //인터셉터를 거치기 때문에 저 형식으로 받을 수 없음 (방법 찾아봐야함)
     override suspend fun getBikeList(startIndex: Int, endIndex: Int): BikeListTestRes {
         Log.e("datacource", "getBikeList: ${api.getBikeList(startIndex, endIndex)}", )
         return api.getBikeList(startIndex, endIndex)
